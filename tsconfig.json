@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "useDefineForClassFields": true,
+    "declaration": true,
+    "outDir": "./lib",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": false,
     "skipLibCheck": true,
@@ -13,8 +13,10 @@
     "moduleResolution": "Node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "tests"],
+  "include": ["src","tests"],
+  "exclude": ["**/node_modules", "tests", "jest.config.ts"],
+  "ignorePatterns": ["/*.test.*"],
+
 }

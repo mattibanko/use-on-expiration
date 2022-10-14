@@ -1,12 +1,18 @@
 {
   "name": "use-on-expire",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "React hook that provide easy way to fire your function when date is expired.",
-  "main": "src/index.ts",
+  "target": "esnext",
+  "module": "commonjs",
+  "main": "index.js",
+  "files": [
+    "lib/**/*"
+  ],
   "scripts": {
     "test": "jest tests",
     "format": "prettier --write src/**/*.ts tests/**/*.test.ts",
-    "lint": "tsc --noEmit && eslint src/**/*.ts tests/**/*.test.ts"
+    "lint": "tsc --noEmit && eslint src/**/*.ts tests/**/*.test.ts",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
