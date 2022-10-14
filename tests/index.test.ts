@@ -1,7 +1,7 @@
 import { renderHook } from "@testing-library/react";
 import { addSeconds, max } from "date-fns";
 
-import { useOnExpired } from "../src";
+import { useOnExpire } from "../src";
 
 jest.useFakeTimers();
 
@@ -9,7 +9,7 @@ test("should work with one", async () => {
   const fn = jest.fn();
   const defaultDate = new Date();
   const date = addSeconds(defaultDate, 1);
-  const { result } = renderHook(() => useOnExpired({ fn, date }));
+  const { result } = renderHook(() => useOnExpire({ fn, date }));
 
   jest.advanceTimersByTime(500);
   expect(fn).not.toBeCalled();
@@ -29,7 +29,7 @@ test("should work with array of dates", async () => {
     addSeconds(defaultDate, 4),
   ];
 
-  const { result } = renderHook(() => useOnExpired({ fn, date: dates }));
+  const { result } = renderHook(() => useOnExpire({ fn, date: dates }));
 
   jest.advanceTimersByTime(500);
   expect(fn).not.toBeCalled();
@@ -50,7 +50,7 @@ test("should work with array of dates and delayed by given time", async () => {
   ];
 
   const { result } = renderHook(() =>
-    useOnExpired({ fn, date: dates, delay: 5000 })
+    useOnExpire({ fn, date: dates, delay: 5000 })
   );
 
   jest.advanceTimersByTime(500);
@@ -74,7 +74,7 @@ test("should work with array of dates and custom function", async () => {
   ];
 
   const { result } = renderHook(() =>
-    useOnExpired({ fn, date: dates, customFilter: max })
+    useOnExpire({ fn, date: dates, customFilter: max })
   );
 
   jest.advanceTimersByTime(500);

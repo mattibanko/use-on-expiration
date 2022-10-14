@@ -26,7 +26,7 @@ interface Props {
  * @returns TimeoutId that can be used for clearing timeout manually.
  */
 
-export function useOnExpired({ fn, date, delay, customFilter }: Props) {
+export function useOnExpire({ fn, date, delay, customFilter }: Props) {
   const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout>();
 
   useEffect(() => {
