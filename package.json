@@ -2,7 +2,7 @@
   "name": "use-on-expire",
   "version": "1.0.1",
   "description": "React hook that provide easy way to fire your function when date is expired.",
-  "main": "index.ts",
+  "main": "src/index.ts",
   "scripts": {
     "test": "jest tests",
     "format": "prettier --write src/**/*.ts tests/**/*.test.ts",
