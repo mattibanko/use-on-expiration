@@ -1,11 +1,12 @@
 {
   "name": "use-on-expire",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "React hook that provide easy way to fire your function when date is expired.",
   "target": "esnext",
   "module": "commonjs",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "root": true,
   "files": [
     "lib/**/*"
   ],
@@ -19,16 +20,27 @@
     "type": "git",
     "url": "git+https://github.com/mattibanko/use-on-expiration.git"
   },
-  "keywords": [],
+  "keywords": [
+    "react",
+    "hooks",
+    "timeout",
+    "expired",
+    "date",
+    "dates",
+    "reached",
+    "hook",
+    "use"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/mattibanko/use-on-expiration/issues"
   },
   "homepage": "https://github.com/mattibanko/use-on-expiration#readme",
-  "dependencies": {
+  "peerDependencies": {
     "date-fns": "^2.29.3",
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "react-dom": "^8.2.0"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.18.6",
