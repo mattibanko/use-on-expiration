@@ -1,0 +1,77 @@
+{
+  "name": "use-on-expire",
+  "version": "1.0.0",
+  "description": "React hook that provide easy way to fire your function when date is expired.",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattibanko/use-on-expiration.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mattibanko/use-on-expiration/issues"
+  },
+  "homepage": "https://github.com/mattibanko/use-on-expiration#readme",
+  "dependencies": {
+    "date-fns": "^2.29.3",
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^1.3.2",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.11.62",
+    "@types/react": "^18.0.17",
+    "@typescript-eslint/eslint-plugin": "^5.38.1",
+    "@typescript-eslint/parser": "^5.38.1",
+    "eslint": "^8.24.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^27.0.4",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.8",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-tsdoc": "^0.2.17",
+    "prettier": "^2.7.1",
+    "typescript": "^4.6.4"
+  },
+  "prettier": {
+    "plugins": [
+      "prettier"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest",
+      "airbnb-typescript",
+      "prettier",
+      "eslint-plugin-tsdoc"
+    ],
+    "parserOptions": {
+      "project": "tsconfig.json"
+    },
+    "rules": {
+      "tsdoc/syntax": "warn",
+      "react/jsx-filename-extension": [
+        1,
+        {
+          "extensions": [
+            ".tsx",
+            ".ts"
+          ]
+        }
+      ]
+    }
+  }
+}
