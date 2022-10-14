@@ -1,10 +1,11 @@
 {
   "name": "use-on-expire",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "React hook that provide easy way to fire your function when date is expired.",
   "target": "esnext",
   "module": "commonjs",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "files": [
     "lib/**/*"
   ],
