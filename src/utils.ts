@@ -1,11 +1,25 @@
 import { min } from "date-fns";
 
-import { GetThreshold } from "./types";
+import { CalculateThreshold } from "./types";
 
-export function getThreshold({ dates, delay = 0, customFilter }: GetThreshold) {
+function calculateThreshold({
+  dates,
+  delay = 0,
+  customFilter,
+}: CalculateThreshold) {
   const timeNow = new Date().getTime();
   const dateToRefresh = customFilter ? customFilter(dates) : min(dates);
   const threshold = dateToRefresh.getTime() - timeNow + delay;
 
   return threshold;
+}
+
+export function getThreshold(
+  date: Date | Date[],
+  delay: number | undefined,
+  customFilter: ((dates: Date[]) => Date) | undefined
+) {
+  return Array.isArray(date)
+    ? calculateThreshold({ dates: date, delay, customFilter })
+    : calculateThreshold({ dates: [date], delay });
 }
