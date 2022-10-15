@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { getThreshold } from "./utils";
 
@@ -26,26 +26,29 @@ interface Props {
  * @returns TimeoutId that can be used for clearing timeout manually.
  */
 
-export function useOnExpire({ fn, date, delay, customFilter }: Props) {
+export function useOnExpire(props: Props) {
   const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout>();
+  const { date, fn, delay, customFilter } = useMemo(() => props, [props]);
 
   useEffect(() => {
-    const threshold = Array.isArray(date)
-      ? getThreshold({ dates: date, delay, customFilter })
-      : getThreshold({ dates: [date], delay });
+    if (!timeoutId) {
+      const threshold = Array.isArray(date)
+        ? getThreshold({ dates: date, delay, customFilter })
+        : getThreshold({ dates: [date], delay });
 
-    if (threshold > 0) {
-      const timeout = setTimeout(() => {
-        fn();
-      }, threshold);
+      if (threshold > 0) {
+        const timeout = setTimeout(() => {
+          fn();
+        }, threshold);
 
-      setTimeoutId(timeout);
+        setTimeoutId(timeout);
 
-      return () => clearTimeout(timeoutId);
+        return () => clearTimeout(timeoutId);
+      }
     }
 
     return;
-  }, [fn, date, delay, customFilter]);
+  }, [date, fn, delay, customFilter, timeoutId]);
 
   return { timeoutId };
 }
