@@ -10,7 +10,7 @@ interface Props {
   /**
    * @param date - Date or array of dates - when date is given threshold will be calculated to given date, when array is given and no customFilter parameters is provided closest date will be used for calculating threshold.
    */
-  date: Date | Date[];
+  date: Date | Date[] | undefined;
   /**
    * @param delay - Optional parameter for delaying firing function.
    */
