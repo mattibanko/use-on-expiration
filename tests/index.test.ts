@@ -5,6 +5,16 @@ import { useOnExpire } from "../src";
 
 jest.useFakeTimers();
 
+test("should work without date", async () => {
+  const fn = jest.fn();
+  const { result } = renderHook(() => useOnExpire({ fn, date: undefined } as any));
+
+  jest.advanceTimersByTime(1000);
+  expect(fn).not.toBeCalled();
+
+  expect(result.current.timeoutId).toBeFalsy();
+});
+
 test("should work with one", async () => {
   const fn = jest.fn();
   const defaultDate = new Date();
