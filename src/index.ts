@@ -28,24 +28,31 @@ interface Props {
 
 export function useOnExpire({ date, fn, delay, customFilter }: Props) {
   const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout>();
+  const [dateToRefresh, setDateToRefresh] = useState<Date>()
 
   useEffect(() => {
     if (!date || timeoutId) {
       return;
     }
 
-    const threshold = getThreshold(date, delay, customFilter);
+    const {threshold, dateToRefresh} = getThreshold(date, delay, customFilter);
+
+    setDateToRefresh(dateToRefresh)
 
     if (threshold > 0) {
       const timeout = setTimeout(() => {
         fn();
+        setTimeoutId(undefined)
       }, threshold);
 
       setTimeoutId(timeout);
 
-      return () => clearTimeout(timeoutId);
+      return () => {
+        setTimeoutId(undefined)
+        clearTimeout(timeoutId)
+      };
     }
-  }, [date, fn, delay, customFilter, timeoutId]);
+  }, [date, fn, delay, customFilter]);
 
-  return { timeoutId };
+  return { timeoutId , dateToRefresh};
 }

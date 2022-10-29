@@ -11,7 +11,7 @@ function calculateThreshold({
   const dateToRefresh = customFilter ? customFilter(dates) : min(dates);
   const threshold = dateToRefresh.getTime() - timeNow + delay;
 
-  return threshold;
+  return {threshold, dateToRefresh};
 }
 
 export function getThreshold(
