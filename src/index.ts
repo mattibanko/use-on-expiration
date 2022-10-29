@@ -30,7 +30,10 @@ export function useOnExpire({ date, fn, delay, customFilter }: Props) {
   const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout>();
 
   useEffect(() => {
-    if (!timeoutId) {
+    if(!date || timeoutId) {
+      return 
+    }
+
       const threshold = getThreshold(date, delay, customFilter);
 
       if (threshold > 0) {
@@ -42,9 +45,7 @@ export function useOnExpire({ date, fn, delay, customFilter }: Props) {
 
         return () => clearTimeout(timeoutId);
       }
-    }
 
-    return;
   }, [date, fn, delay, customFilter, timeoutId]);
 
   return { timeoutId };
