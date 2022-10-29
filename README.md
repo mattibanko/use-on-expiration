@@ -1,6 +1,7 @@
 # use-on-expiration
 
 React hook that provide easy way to fire your function when date is expired.
+Showcase: https://mattibanko.github.io/demo-use-on-expire/
 
 Usage:
 
@@ -10,5 +11,3 @@ const { timeoutId, dateToRefresh } = useOnExpire({
   fn: useCallback(() => setState(true), []),
 });
 ```
-
-<iframe src="http://localhost:5173/demo-use-on-expire-project/"></iframe>

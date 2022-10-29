@@ -1,6 +1,6 @@
 {
   "name": "use-on-expire",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "description": "React hook that provide easy way to fire your function when date is expired.",
   "target": "esnext",
   "main": "lib/index.js",
@@ -36,7 +36,7 @@
   "bugs": {
     "url": "https://github.com/mattibanko/use-on-expiration/issues"
   },
-  "homepage": "https://github.com/mattibanko/use-on-expiration#readme",
+  "homepage": "https://mattibanko.github.io/demo-use-on-expire",
   "peerDependencies": {
     "date-fns": ">=2.28.0",
     "react": ">=17.0.0",
