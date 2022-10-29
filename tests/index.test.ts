@@ -7,7 +7,9 @@ jest.useFakeTimers();
 
 test("should work without date", async () => {
   const fn = jest.fn();
-  const { result } = renderHook(() => useOnExpire({ fn, date: undefined } as any));
+  const { result } = renderHook(() =>
+    useOnExpire({ fn, date: undefined } as any)
+  );
 
   jest.advanceTimersByTime(1000);
   expect(fn).not.toBeCalled();
